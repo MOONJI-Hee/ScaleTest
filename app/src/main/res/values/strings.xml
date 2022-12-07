@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScaleTest</string>
+
+    <string name="dpi_info">ldpi는 노란색\nmdpi는 하늘색\nhdpi는 보라색\nxhdpi는 핑크색\nxxhdpi는 초록색\nxxxhdpi는 빨간색</string>
+</resources>
