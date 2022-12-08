@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.LinearLayout
 
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
@@ -88,16 +90,28 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "dpi (Dot Per Inch - 화면 밀도 / 해상도) >>> $dpi")
         Log.d(TAG, "코드 내에서 어떤 dpi로 인식하는지 >>> $strDpi")
 
-        val img : ImageView = findViewById<ImageView>(R.id.cat)
+        val linearLayout = findViewById<LinearLayout>(R.id.ll)
+        linearLayout.measure(0, 0)
+        val ll_width = linearLayout.width
+        val ll_height = linearLayout.height
+        val ll_measure_width = linearLayout.measuredWidth
+        val ll_measure_height = linearLayout.measuredHeight
+
+        Log.d(TAG, "레이아웃 넓이 >>> $ll_width")
+        Log.d(TAG, "레이아웃 높이 >>> $ll_height")
+        Log.d(TAG, "레이아웃 measure 넓이 >>> $ll_measure_width")
+        Log.d(TAG, "레이아웃 measure 높이 >>> $ll_measure_height")
+
+        val img = findViewById<View>(R.id.img)
         img.measure(0, 0)
         val img_width = img.width
         val img_height = img.height
         val img_measure_width = img.measuredWidth
         val img_measure_height = img.measuredHeight
 
-        Log.d(TAG, "이미지 넓이 >>> $img_width")
-        Log.d(TAG, "이미지 높이 >>> $img_height")
-        Log.d(TAG, "이미지 measure 넓이 >>> $img_measure_width")
-        Log.d(TAG, "이미지 measure 높이 >>> $img_measure_height")
+        Log.d(TAG, "view 넓이 >>> $img_width")
+        Log.d(TAG, "view 높이 >>> $img_height")
+        Log.d(TAG, "view measure 넓이 >>> $img_measure_width")
+        Log.d(TAG, "view measure 높이 >>> $img_measure_height")
     }
 }
